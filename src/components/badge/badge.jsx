@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Badge = ()=>{
+const Badge = (props)=>{
   return (
-    <label>badge</label>
+    <span className={props.propClassName}>{props.propBadgeValue}</span>
   );
 }
 

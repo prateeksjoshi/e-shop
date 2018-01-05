@@ -3,7 +3,12 @@ import Product from '../product/product';
 
 const ProductList =()=>{
   return(
-    <Product />
+    <article className="product-list d-flex justify-content-between">
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+    </article>
   );
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import PageTitleBar from '../pageTitleBar/pageTitleBar';
 import ProductList from '../productList/productList';
+import './style.css';
 
-const Page = ()=>{
+const Page = (props)=>{
   return (
-    <article>
-      <PageTitleBar />
+    <article className="page">
+      <PageTitleBar propTitle={props.propPageTitle} />
       <ProductList />
     </article>
   );

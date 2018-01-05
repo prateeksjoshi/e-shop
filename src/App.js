@@ -4,6 +4,7 @@ import './App.css';
 import EshopContainer from './components/eshopContainer/eshopContainer';
 import Header from './components/header/header';
 import Home from './views/home/home';
+import Cart from './views/cart/cart';
 
 class App extends Component {
   render() {
@@ -11,7 +12,8 @@ class App extends Component {
       <EshopContainer>
         <Header></Header>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </EshopContainer>
     );
