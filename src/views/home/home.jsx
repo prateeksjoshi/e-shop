@@ -1,10 +1,33 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import Page from '../../components/page/page';
+import * as productAction from '../../actions/productAction.js';
 
-const Home = ()=>{
-  return(
-    <Page propPageTitle="Products" />
-  );
+class Home extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentWillMount(){
+    this.props.actions.getProducts();
+  }
+
+  render(){
+      return (
+        <Page propPageTitle="Products" propProducts={this.props.products}  />
+      );
+  }
 }
 
-export default Home;
+function mapStateToProps(state){
+  //console.log('my init props = >>>>>> ',state);
+  return{
+    products:state.products
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(Object.assign({},productAction), dispatch)}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

@@ -4,10 +4,11 @@ import ProductList from '../productList/productList';
 import './style.css';
 
 const Page = (props)=>{
+  console.log('page props-.....',props.propProducts);
   return (
     <article className="page">
       <PageTitleBar propTitle={props.propPageTitle} />
-      <ProductList />
+      <ProductList propProducts={props.propProducts}/>
     </article>
   );
 }

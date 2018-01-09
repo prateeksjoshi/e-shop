@@ -10,11 +10,11 @@ class Product extends React.Component {
   render(){
     return (
       <div className="card">
-        <img className="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSleaUq5f3Z_Y8v46-9bzGT1nkl5Yia-ovrA-fAUm60G2HRMckrdg" alt="Card image cap" />
+        <img className="card-img-top" src={this.props.propProductImage} alt="Card image cap" />
         <div className="card-body d-flex">
-          <h6>Product Title</h6>
-          <Badge propBadgeValue="Rs. 200" propClassName="badge badge-pill badge-secondary" />
-          <Button propClassName="btn btn-dark btn-sm" propValue="Add to Cart" />
+          <h6>{this.props.propProductName}</h6>
+          <Badge propBadgeValue={"Rs. "+this.props.propProductPrice} propClassName="badge badge-pill badge-secondary" />
+          <Button propClassName="btn btn-dark btn-sm" propValue={this.props.propProductIsSelected ? "Remove":"Add to Cart"} />
         </div>
       </div>
     );
