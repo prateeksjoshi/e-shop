@@ -11,7 +11,7 @@ const Header =(props)=>{
       selectedProductsCnt +=1;
     }
   })
-  console.log('cart count = ',selectedProductsCnt);
+  //console.log('cart count = ',selectedProductsCnt);
   return(
     <header className="navbar navbar-dark bg-dark app-header">
       <Link to='/'><span className="app-logo">e-Shop</span></Link>
@@ -21,7 +21,7 @@ const Header =(props)=>{
 }
 
 function mapStateToProps(state){
-  console.log('my header props = >>>>>> ',state);
+  //console.log('my header props = >>>>>> ',state);
   return{
     products:state.products
   }

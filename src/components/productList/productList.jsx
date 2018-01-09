@@ -5,7 +5,7 @@ import _ from 'lodash';
 class ProductList extends React.Component{
   constructor(props){
     super(props);
-    console.log('product props-0-0-0-0-',props);
+    //console.log('product props-0-0-0-0-',props);
   }
   render(){
     const prod = this.props.propProducts.map((product,index)=>(
