@@ -1,33 +1,19 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import Page from '../../components/page/page';
-import * as productAction from '../../actions/productAction.js';
+import PageTitleBar from '../../components/pageTitleBar/pageTitleBar';
+import ProductList from '../../components/productList/productList';
 
 class Home extends React.Component {
   constructor(props){
     super(props);
   }
-  componentWillMount(){
-    this.props.actions.getProducts();
-  }
-
   render(){
       return (
-        <Page propPageTitle="Products" propProducts={this.props.products}  />
+        <article className="page">
+          <PageTitleBar propTitle="Products" />
+          <ProductList propsUrl="home"/>
+        </article>
       );
   }
 }
 
-function mapStateToProps(state){
-  //console.log('my init props = >>>>>> ',state);
-  return{
-    products:state.products
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(Object.assign({},productAction), dispatch)}
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default Home;

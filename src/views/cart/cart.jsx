@@ -1,10 +1,19 @@
 import React from 'react';
-import Page from '../../components/page/page';
+import PageTitleBar from '../../components/pageTitleBar/pageTitleBar';
+import ProductList from '../../components/productList/productList';
 
-const Cart = ()=>{
-  return(
-    <Page propPageTitle="Selected Products" />
-  );
+class Cart extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+      return (
+        <article className="page">
+          <PageTitleBar propTitle="Selected Products" />
+          <ProductList propsUrl="cart" />
+        </article>
+      );
+  }
 }
 
 export default Cart;

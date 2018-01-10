@@ -1,23 +1,48 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as productAction from '../../actions/productAction.js';
 import Product from '../product/product';
 import _ from 'lodash';
 
-class ProductList extends React.Component{
+class ProductList extends React.Component {
   constructor(props){
     super(props);
-    //console.log('product props-0-0-0-0-',props);
   }
+  componentWillMount(){
+    this.props.actions.getProducts();
+  }
+
   render(){
-    const prod = this.props.propProducts.map((product,index)=>(
-      <Product key={product.id} propProductName={product.productName} propProductImage={product.productImageUrl}
-               propProductPrice={product.productPrice} propProductIsSelected={product.isSelected} />
-    ))
-    return(
+    
+    let prod=[];
+    if(this.props.propsUrl==="cart"){
+      prod=_.filter(this.props.products,{isSelected:true});
+    }
+
+    const products = _.map(this.props.propsUrl==="cart" ? prod : this.props.products,(p)=>{
+      return (
+        <Product key={p.id} propProductName={p.productName} propProductImage={p.productImageUrl}
+                 propProductPrice={p.productPrice} propProductIsSelected={p.isSelected} />
+      );
+    })
+
+    return (
       <article className="product-list d-flex justify-content-between">
-        {prod}
+        {products}
       </article>
     );
   }
 }
 
-export default ProductList;
+function mapStateToProps(state){
+  return{
+    products:state.products
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(Object.assign({},productAction), dispatch)}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductList);
