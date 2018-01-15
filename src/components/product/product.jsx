@@ -10,7 +10,7 @@ class Product extends React.Component {
     return (
       <div className="card">
         <img className="card-img-top" src={this.props.productImage} alt="" />
-        <div className="card-body d-flex">
+        <div className="card-body d-flex align-items-center">
           <h6 className="product-name">{this.props.productName}</h6>
           <Badge propBadgeValue={"Rs. "+this.props.productPrice} propClassName="badge badge-pill badge-secondary" />
           <Button propClassName="btn btn-dark btn-sm" onClick={()=>this.props.updateCart(this.props.id,this.props.propProduct)} propValue={this.props.isSelected ? "Remove":"Add to Cart"} />
