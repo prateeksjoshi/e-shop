@@ -1,18 +1,26 @@
-const initState = [];
-
-function products(state=initState,action){
+export function productsHasError(state=false,action){
   switch(action.type){
-    case "GET_PRODUCTS":
-      return state;
-    case "GET_PRODUCTS_SUCCESS":
-      //console.log('prod success',action.payload);
-      return action.payload;
-    case "GET_PRODUCTS_ERROR":
-      //console.log('prod error',action.payload);
-      return Object.assign({}, state,action.payload);
+    case 'PRODUCTS_HAS_ERROR':
+        return action.hasError;
     default:
-     return state;
+        return state;
   }
 }
 
-export default products;
+export function productsIsLoading(state=false,action){
+  switch(action.type){
+    case 'PRODUCTS_IS_LOADING':
+        return action.isLoading;
+    default:
+        return state;
+  }
+}
+
+export function products(state=[],action){
+  switch(action.type){
+    case 'PRODUCTS_FETCH_DATA_SUCCESS':
+        return action.products;
+    default:
+      return state;
+  }
+}

@@ -3,14 +3,11 @@ import Badge from '../badge/badge';
 import './style.css';
 
 class Button extends React.Component {
-  constructor(props) {
-    super(props);
-    //console.log('props = ',this.props);
-  }
+
   render(){
     return(
-      <button className={this.props.propClassName}>
-        {this.props.propValue}
+      <button onClick={this.props.onClick} className={this.props.propClassName}>
+        {this.props.propValue}&nbsp;
         {this.props.propBadgeValue && (
           <Badge propClassName="badge badge-light" propBadgeValue={this.props.propBadgeValue} />
         )}

@@ -3,14 +3,12 @@ import PageTitleBar from '../../components/pageTitleBar/pageTitleBar';
 import ProductList from '../../components/productList/productList';
 
 class Home extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render(){
+      console.log('prod=',this.props.products);
       return (
         <article className="page">
-          <PageTitleBar propTitle="Products" />
-          <ProductList propsUrl="home"/>
+          <PageTitleBar propsSortBy propTitle="Products" />
+          <ProductList propsUrl="home" propProducts={this.props.products} />
         </article>
       );
   }
