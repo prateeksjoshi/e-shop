@@ -14,6 +14,16 @@ import Cart from './views/cart/cart';
 
 
 class App extends Component {
+
+  propTypes = {
+    products:PropTypes.arrayOf(PropTypes.object).isRequired,
+    selectedProducts : PropTypes.arrayOf(PropTypes.object).isRequired
+  }
+
+  defaultProps = {
+    selectedProducts: []
+  }
+
   componentDidMount(){
     this.props.fetchData("http://localhost:3004/products");
   }
@@ -44,14 +54,5 @@ function mapDispatchToProps(dispatch){
     fetchData:(url)=>dispatch(productsFetchData(url))
   }
 }
-
-App.propTypes = {
-  products:PropTypes.arrayOf(PropTypes.object).isRequired,
-  selectedProducts : PropTypes.arrayOf(PropTypes.object).isRequired
-}
-
-App.defaultProps = {
-  selectedProducts: []
-};
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));

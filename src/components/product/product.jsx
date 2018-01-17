@@ -9,6 +9,15 @@ import Button from '../button/button';
 import {updateCart} from '../../actions/productAction';
 
 class Product extends React.Component {
+
+  propTypes = {
+    productImage : PropTypes.string,
+    productName : PropTypes.string,
+    productPrice : PropTypes.number,
+    isSelected : PropTypes.bool,
+    updateCart : PropTypes.func
+  }
+
   render(){
     return (
       <div className="card">
@@ -21,14 +30,6 @@ class Product extends React.Component {
       </div>
     );
   }
-}
-
-Product.propTypes = {
-  productImage : PropTypes.string,
-  productName : PropTypes.string,
-  productPrice : PropTypes.number,
-  isSelected : PropTypes.bool,
-  updateCart : PropTypes.func
 }
 
 function mapStateToProps(state){

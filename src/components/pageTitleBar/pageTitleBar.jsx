@@ -8,6 +8,19 @@ import Select from '../select/select';
 import {sortProducts} from '../../actions/productAction';
 
 class PageTitleBar extends React.Component{
+
+  propTypes = {
+    products : PropTypes.arrayOf(PropTypes.object).isRequired,
+    propTitle : PropTypes.string,
+    propsSortBy : PropTypes.bool,
+    sortProducts : PropTypes.func
+  }
+
+  defaultProps = {
+    propTitle: "Products",
+    propsSortBy: true
+  }
+
   constructor(props){
     super(props);
     this.handleSortBy = this.handleSortBy.bind(this);
@@ -25,18 +38,6 @@ class PageTitleBar extends React.Component{
     );
   }
 
-}
-
-PageTitleBar.propTypes = {
-  products : PropTypes.arrayOf(PropTypes.object).isRequired,
-  propTitle : PropTypes.string,
-  propsSortBy : PropTypes.bool,
-  sortProducts : PropTypes.func
-}
-
-PageTitleBar.defaultProps = {
-  propTitle: "Products",
-  propsSortBy: true
 }
 
 function mapStateToProps(state){

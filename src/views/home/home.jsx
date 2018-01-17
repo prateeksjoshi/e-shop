@@ -5,6 +5,11 @@ import PageTitleBar from '../../components/pageTitleBar/pageTitleBar';
 import ProductList from '../../components/productList/productList';
 
 class Home extends React.Component {
+
+  propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired
+  }
+
   render(){
       return (
         <article className="page">
@@ -13,10 +18,6 @@ class Home extends React.Component {
         </article>
       );
   }
-}
-
-Home.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 

@@ -6,8 +6,11 @@ import ProductList from '../../components/productList/productList';
 
 class Cart extends React.Component {
 
+  propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired
+  }
+
   render(){
-    console.log('selected prod=',this.props.products);
       return (
         <article className="page">
           <PageTitleBar propTitle="Selected Products" />
@@ -15,16 +18,6 @@ class Cart extends React.Component {
         </article>
       );
   }
-}
-
-Cart.propTypes = {
-  propTitle : PropTypes.string.isRequired,
-  propProducts : PropTypes.arrayOf(PropTypes.object).isRequired
-}
-
-Cart.defaultProps = {
-  propTitle : "Selected Products",
-  propProducts : []
 }
 
 export default Cart;
