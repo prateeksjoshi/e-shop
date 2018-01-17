@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Product from '../product/product';
 
 export default class ProductList extends React.Component {
@@ -11,4 +13,12 @@ export default class ProductList extends React.Component {
       </article>
     );
   }
+}
+
+ProductList.propTypes = {
+  propProducts : PropTypes.arrayOf(PropTypes.object).isRequired
+}
+
+ProductList.defaultProps = {
+  propProducts: []
 }

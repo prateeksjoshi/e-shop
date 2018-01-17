@@ -1,8 +1,10 @@
 import React from 'react';
-import Select from '../select/select';
-import './style.css';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import {connect} from 'react-redux';
+
+import './style.css';
+import Select from '../select/select';
 import {sortProducts} from '../../actions/productAction';
 
 class PageTitleBar extends React.Component{
@@ -23,6 +25,18 @@ class PageTitleBar extends React.Component{
     );
   }
 
+}
+
+PageTitleBar.propTypes = {
+  products : PropTypes.arrayOf(PropTypes.object).isRequired,
+  propTitle : PropTypes.string,
+  propsSortBy : PropTypes.bool,
+  sortProducts : PropTypes.func
+}
+
+PageTitleBar.defaultProps = {
+  propTitle: "Products",
+  propsSortBy: true
 }
 
 function mapStateToProps(state){

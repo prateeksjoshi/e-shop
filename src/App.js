@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
+
 import {productsFetchData} from './actions/productAction';
+
 import './App.css';
 import EshopContainer from './components/eshopContainer/eshopContainer';
 import Header from './components/header/header';
 import Home from './views/home/home';
 import Cart from './views/cart/cart';
-import _ from 'lodash';
+
 
 class App extends Component {
   componentDidMount(){
@@ -15,7 +19,6 @@ class App extends Component {
   }
   render() {
     const selectedProducts = _.filter(this.props.products,'isSelected');
-    console.log('sel,',selectedProducts);
     return (
       <EshopContainer>
         <Header cartCount={selectedProducts.length}></Header>
@@ -41,5 +44,14 @@ function mapDispatchToProps(dispatch){
     fetchData:(url)=>dispatch(productsFetchData(url))
   }
 }
+
+App.propTypes = {
+  products:PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedProducts : PropTypes.arrayOf(PropTypes.object).isRequired
+}
+
+App.defaultProps = {
+  selectedProducts: []
+};
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));

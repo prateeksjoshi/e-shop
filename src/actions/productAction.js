@@ -41,7 +41,6 @@ export function sortProducts(products){
 }
 
 export function updateCart(id,product){
-  console.log('cart-...',product,id);
     const newProduct = {...product,isSelected:!product.isSelected}
     return (dispatch)=>{
       fetch("http://localhost:3004/products/"+id,{

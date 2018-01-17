@@ -1,8 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+import './style.css';
 import Badge from '../badge/badge';
 import Button from '../button/button';
-import './style.css';
-import {connect} from 'react-redux';
+
 import {updateCart} from '../../actions/productAction';
 
 class Product extends React.Component {
@@ -18,6 +21,14 @@ class Product extends React.Component {
       </div>
     );
   }
+}
+
+Product.propTypes = {
+  productImage : PropTypes.string,
+  productName : PropTypes.string,
+  productPrice : PropTypes.number,
+  isSelected : PropTypes.bool,
+  updateCart : PropTypes.func
 }
 
 function mapStateToProps(state){
