@@ -5,3 +5,8 @@
 select{
   width: auto !important;
 }
+
+.sort-by label{
+  margin-right: 10px;
+  margin-bottom: 0;
+}
