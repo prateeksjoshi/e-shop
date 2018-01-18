@@ -34,7 +34,7 @@ class PageTitleBar extends React.Component{
       <header className="d-flex justify-content-between page-title-bar">
         <h3>{this.props.propTitle}</h3>
         {this.props.propsSortBy &&
-          <div class="d-flex sort-by justify-content-between align-items-center">
+          <div className="d-flex sort-by justify-content-between align-items-center">
             <label>Sort By: </label>
             <Select propOnChange={this.handleSortBy} />
           </div>

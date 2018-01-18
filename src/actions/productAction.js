@@ -1,7 +1,6 @@
 import api from '../api/api';
 
 export function productsHasError(bool){
-  console.log('into has error action creator');
   return{
     type:"PRODUCTS_HAS_ERROR",
     hasError:bool
@@ -9,7 +8,6 @@ export function productsHasError(bool){
 }
 
 export function productsIsLoading(bool){
-  console.log('into loading action creator');
   return{
     type:"PRODUCTS_IS_LOADING",
     isLoading:bool
