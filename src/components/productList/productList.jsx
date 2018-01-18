@@ -5,17 +5,17 @@ import Product from '../product/product';
 
 export default class ProductList extends React.Component {
 
-  propTypes = {
+  static propTypes = {
     propProducts : PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
-  defaultProps = {
+  static defaultProps = {
     propProducts: []
   }
 
   render(){
     return (
-      <article className="product-list d-flex justify-flex-start flex-wrap">
+      <article className="product-list d-flex justify-content-between flex-wrap">
         {this.props.propProducts.map(function(product,index){
           return (<Product key={product.id} propProduct={product} {...product} />);
         })}

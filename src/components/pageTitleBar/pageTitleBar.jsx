@@ -9,14 +9,14 @@ import {sortProducts} from '../../actions/productAction';
 
 class PageTitleBar extends React.Component{
 
-  propTypes = {
+  static propTypes = {
     products : PropTypes.arrayOf(PropTypes.object).isRequired,
     propTitle : PropTypes.string,
     propsSortBy : PropTypes.bool,
     sortProducts : PropTypes.func
   }
 
-  defaultProps = {
+  static defaultProps = {
     propTitle: "Products",
     propsSortBy: true
   }

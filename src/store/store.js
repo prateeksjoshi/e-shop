@@ -4,10 +4,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import { createLogger } from 'redux-logger'
 
-const initialState = {
-  products: []
-}
-const store = createStore(rootReducer, initialState, applyMiddleware(
+const store = createStore(rootReducer, applyMiddleware(
     thunk,
     promise,
     createLogger()

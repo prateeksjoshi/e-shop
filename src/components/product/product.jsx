@@ -10,7 +10,7 @@ import {updateCart} from '../../actions/productAction';
 
 class Product extends React.Component {
 
-  propTypes = {
+  static propTypes = {
     productImage : PropTypes.string,
     productName : PropTypes.string,
     productPrice : PropTypes.number,
@@ -22,10 +22,12 @@ class Product extends React.Component {
     return (
       <div className="card">
         <img className="card-img-top" src={this.props.productImage} alt="" />
-        <div className="card-body d-flex align-items-center">
-          <h6 className="product-name">{this.props.productName}</h6>
-          <Badge propBadgeValue={"Rs. "+this.props.productPrice} propClassName="badge badge-pill badge-secondary" />
-          <Button propClassName="btn btn-dark btn-sm" onClick={()=>this.props.updateCart(this.props.id,this.props.propProduct)} propValue={this.props.isSelected ? "Remove":"Add to Cart"} />
+        <div className="card-body">
+          <h6 className="product-name text-center">{this.props.productName}</h6>
+          <div className="d-flex justify-content-center">
+              <Badge propBadgeValue={"Rs. "+this.props.productPrice} propClassName="badge badge-pill badge-secondary" />
+              <Button propClassName={"btn btn-dark btn-sm "+(this.props.isSelected ? 'bg-red':null)} onClick={()=>this.props.updateCart(this.props.id,this.props.propProduct)} propValue={this.props.isSelected ? "Remove":"Add to Cart"} />
+          </div>
         </div>
       </div>
     );
@@ -35,8 +37,8 @@ class Product extends React.Component {
 function mapStateToProps(state){
   return {
     products: state.products,
-    hasErrored: state.hasError,
-    isLoading: state.isLoading
+    hasErrored: state.productsHasError,
+    isLoading: state.productsIsLoading
   };
 }
 

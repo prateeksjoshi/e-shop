@@ -3,4 +3,10 @@
 }
 .app-header .badge{
   margin-left: 10px;
+  background:#c77a58;
+  color: #fff;
+}
+
+.input-group{
+  margin-bottom: 0 !important;
 }

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
+import api from './api/api';
 import {productsFetchData} from './actions/productAction';
 
 import './App.css';
@@ -15,19 +16,20 @@ import Cart from './views/cart/cart';
 
 class App extends Component {
 
-  propTypes = {
+  static propTypes = {
     products:PropTypes.arrayOf(PropTypes.object).isRequired,
     selectedProducts : PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
-  defaultProps = {
+  static defaultProps = {
     selectedProducts: []
   }
 
   componentDidMount(){
-    this.props.fetchData("http://localhost:3004/products");
+    this.props.fetchData(api);
   }
   render() {
+
     const selectedProducts = _.filter(this.props.products,'isSelected');
     return (
       <EshopContainer>
@@ -42,10 +44,11 @@ class App extends Component {
 }
 
 function mapStateToProps(state){
+  console.log('this state',state);
   return {
     products: state.products,
-    hasErrored: state.hasError,
-    isLoading: state.isLoading
+    hasErrored: state.productsHasError,
+    isLoading: state.productsIsLoading
   };
 }
 

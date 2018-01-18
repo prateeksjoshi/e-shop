@@ -1,25 +1,43 @@
 .card {
   margin-right: 1%;
-}
-.card{
   margin-bottom: 1%;
+  width: 200px;
+  height: 200px;
+}
+
+.card:hover{
+  box-shadow: 0px 0px 3px 3px #ccc;
+  transform: scale(1.025);
+  z-index: 1;
 }
 
 .card-img-top{
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: 100px;
+  margin: 5px auto;
 }
 
 .product-name, .badge{
   margin-right: 10px;
 }
 
-.product-name{
-  margin-bottom: 0;
-}
-
 .card-body .badge{
   padding: 5px;
   display: inline-block;
   line-height: 20px;
+}
+
+.card-body .btn-dark, .card-body .btn-dark:focus, .card-body .btn-dark:hover, .card-body .btn-dark:active, .card-body .btn-dark:visited{
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.card-body .btn.bg-red:hover{
+  background: #c77a58;
+}
+
+.bg-red{
+  background: #c77a58;
+  border: none
 }

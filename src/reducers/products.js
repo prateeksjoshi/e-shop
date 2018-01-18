@@ -8,6 +8,7 @@ export function productsHasError(state=false,action){
 }
 
 export function productsIsLoading(state=false,action){
+  console.log('st',state);
   switch(action.type){
     case 'PRODUCTS_IS_LOADING':
         return action.isLoading;
@@ -17,6 +18,7 @@ export function productsIsLoading(state=false,action){
 }
 
 export function products(state=[],action){
+  console.log('prd st',state);
   switch(action.type){
     case 'PRODUCTS_FETCH_DATA_SUCCESS':
         return action.products;
