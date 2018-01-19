@@ -17,11 +17,13 @@ export function products(state=initialState,action){
         return {...state,productList:action.products};
 
     case 'PRODUCT_IS_SELECTED':
-        state.productList.map((product)=>{
+        const updatedList = state.productList.map((product)=>{
           if(product.id===action.id){
-            return {...state,isSelected:!product.isSelected}
+            return {...product,isSelected:!product.isSelected}
           }
+          return product;
         })
+        return {...state,productList:updatedList};
 
     default:
       return state;
