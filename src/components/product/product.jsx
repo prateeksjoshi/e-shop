@@ -10,6 +10,24 @@ import {updateCart} from '../../actions/productAction';
 
 class Product extends React.Component {
 
+  static propTypes={
+    propProduct : PropTypes.object.isRequired,
+    productImage : PropTypes.string,
+    productName : PropTypes.string,
+    productPrice : PropTypes.number,
+    id : PropTypes.number,
+    isSelected : PropTypes.bool
+  }
+
+  static defaultProps = {
+    propProduct : {},
+    productImage : "",
+    productName : "",
+    productPrice : 0,
+    id : 0,
+    isSelected : false
+  }
+
   render(){
     return (
       <div className="card">
@@ -26,18 +44,10 @@ class Product extends React.Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    products: state.products,
-    hasErrored: state.productsHasError,
-    isLoading: state.productsIsLoading
-  };
-}
-
 function mapDispatchToProps(dispatch){
   return{
     updateCart:(id,product)=>dispatch(updateCart(id,product))
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Product);
+export default connect(null,mapDispatchToProps)(Product);

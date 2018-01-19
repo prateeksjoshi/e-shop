@@ -5,6 +5,14 @@ import Product from '../product/product';
 
 export default class ProductList extends React.Component {
 
+  static propTypes={
+    propProducts : PropTypes.array.isRequired
+  }
+
+  static defaultProps = {
+    propProducts : []
+  }
+
   render(){
     return (
       <article className="product-list d-flex justify-content-start flex-wrap">

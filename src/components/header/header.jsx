@@ -10,6 +10,14 @@ import {search} from '../../actions/productAction';
 
 class Header extends React.Component{
 
+  static propTypes={
+    cartCount : PropTypes.number
+  }
+
+  static defaultProps = {
+    cartCount : 0
+  }
+
   constructor(props){
     super(props);
     this.search = this.search.bind(this);

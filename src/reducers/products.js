@@ -5,16 +5,19 @@ const initialState = {
 }
 
 export function products(state=initialState,action){
+  let newState = {}
   switch(action.type){
-
     case 'PRODUCTS_HAS_ERROR':
-        return {...state,hasError:action.hasError};
+        newState = {...state,hasError:action.hasError};
+        return Object.assign({},state,newState);
 
     case 'PRODUCTS_IS_LOADING':
-        return {...state,isLoading:action.isLoading};
+        newState = {...state,isLoading:action.isLoading};
+        return Object.assign({},state,newState);
 
     case 'PRODUCTS_FETCH_DATA_SUCCESS':
-        return {...state,productList:action.products};
+        newState = {...state,productList:action.products};
+        return Object.assign({},state,newState);
 
     case 'PRODUCT_IS_SELECTED':
         const updatedList = state.productList.map((product)=>{
@@ -23,7 +26,8 @@ export function products(state=initialState,action){
           }
           return product;
         })
-        return {...state,productList:updatedList};
+        newState = {...state,productList:updatedList};
+        return Object.assign({},state,newState);
 
     default:
       return state;

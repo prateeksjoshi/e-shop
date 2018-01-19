@@ -16,6 +16,18 @@ import Cart from './views/cart/cart';
 
 class App extends Component {
 
+  static propTypes={
+    products : PropTypes.array.isRequired,
+    hasErrored : PropTypes.bool,
+    isLoading : PropTypes.bool
+  }
+
+  static defaultProps = {
+    products : [],
+    hasErrored:false,
+    isLoading:false
+  }
+
   componentDidMount(){
     this.props.fetchData(api);
   }

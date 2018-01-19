@@ -6,6 +6,14 @@ import ProductList from '../../components/productList/productList';
 
 class Home extends React.Component {
 
+  static propTypes={
+    products : PropTypes.array.isRequired
+  }
+
+  static defaultProps = {
+    products : []
+  }
+
   render(){
       return (
         <article className="page">

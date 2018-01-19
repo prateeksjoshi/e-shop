@@ -1,8 +1,23 @@
 import React from 'react';
-import Badge from '../badge/badge';
+import PropTypes from 'prop-types';
+
 import './style.css';
+import Badge from '../badge/badge';
 
 class Button extends React.Component {
+
+  static propTypes={
+    propClassName : PropTypes.string,
+    propValue : PropTypes.string,
+    propBadgeValue : PropTypes.number
+  }
+
+  static defaultProps = {
+    propClassName : "",
+    propValue : "",
+    propBadgeValue : 0
+
+  }
 
   render(){
     return(
