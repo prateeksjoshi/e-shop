@@ -6,10 +6,6 @@ import ProductList from '../../components/productList/productList';
 
 class Cart extends React.Component {
 
-  static propTypes = {
-    products: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
   render(){
       return (
         <article className="page">

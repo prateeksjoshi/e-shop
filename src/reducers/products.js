@@ -15,7 +15,14 @@ export function products(state=initialState,action){
 
     case 'PRODUCTS_FETCH_DATA_SUCCESS':
         return {...state,productList:action.products};
-        
+
+    case 'PRODUCT_IS_SELECTED':
+        state.productList.map((product)=>{
+          if(product.id===action.id){
+            return {...state,isSelected:!product.isSelected}
+          }
+        })
+
     default:
       return state;
   }

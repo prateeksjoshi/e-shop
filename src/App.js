@@ -16,15 +16,6 @@ import Cart from './views/cart/cart';
 
 class App extends Component {
 
-  static propTypes = {
-    products:PropTypes.arrayOf(PropTypes.object).isRequired,
-    selectedProducts : PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
-  static defaultProps = {
-    selectedProducts: []
-  }
-
   componentDidMount(){
     this.props.fetchData(api);
   }
@@ -47,8 +38,8 @@ function mapStateToProps(state){
   console.log('this state',state);
   return {
     products: state.products.productList,
-    hasErrored: state.productsHasError,
-    isLoading: state.productsIsLoading
+    hasErrored: state.products.hasError,
+    isLoading: state.products.isLoading
   };
 }
 

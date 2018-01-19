@@ -21,6 +21,13 @@ export function productsFetchDataSuccess(products){
   };
 }
 
+export function updateProduct(id){
+  return {
+    type:"PRODUCT_IS_SELECTED",
+    id
+  };
+}
+
 export function productsFetchData(url) {
     return (dispatch) => {
         dispatch(productsIsLoading(true));
@@ -54,7 +61,7 @@ export function updateCart(id,product){
       })
       .then(response=>{
         if(response.ok){
-          dispatch(productsFetchData(api));
+          dispatch(updateProduct(id));
         }
       })
   };

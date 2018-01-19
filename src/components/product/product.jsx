@@ -10,14 +10,6 @@ import {updateCart} from '../../actions/productAction';
 
 class Product extends React.Component {
 
-  static propTypes = {
-    productImage : PropTypes.string,
-    productName : PropTypes.string,
-    productPrice : PropTypes.number,
-    isSelected : PropTypes.bool,
-    updateCart : PropTypes.func
-  }
-
   render(){
     return (
       <div className="card">

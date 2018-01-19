@@ -9,18 +9,6 @@ import {sortProducts} from '../../actions/productAction';
 
 class PageTitleBar extends React.Component{
 
-  static propTypes = {
-    products : PropTypes.arrayOf(PropTypes.object).isRequired,
-    propTitle : PropTypes.string,
-    propsSortBy : PropTypes.bool,
-    sortProducts : PropTypes.func
-  }
-
-  static defaultProps = {
-    propTitle: "Products",
-    propsSortBy: true
-  }
-
   constructor(props){
     super(props);
     this.handleSortBy = this.handleSortBy.bind(this);
@@ -45,13 +33,6 @@ class PageTitleBar extends React.Component{
 
 }
 
-function mapStateToProps(state){
-  return {
-    products: state.products,
-    hasErrored: state.hasError,
-    isLoading: state.isLoading
-  };
-}
 
 function mapDispatchToProps(dispatch){
   return{
@@ -59,4 +40,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PageTitleBar);
+export default connect(null,mapDispatchToProps)(PageTitleBar);
