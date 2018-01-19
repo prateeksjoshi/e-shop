@@ -1,25 +1,21 @@
-export function productsHasError(state=false,action){
+const initialState = {
+  "hasError": false,
+  "isLoading": false,
+  "productList":[]
+}
+
+export function products(state=initialState,action){
   switch(action.type){
+
     case 'PRODUCTS_HAS_ERROR':
-        return action.hasError;
-    default:
-        return state;
-  }
-}
+        return {...state,hasError:action.hasError};
 
-export function productsIsLoading(state=false,action){
-  switch(action.type){
     case 'PRODUCTS_IS_LOADING':
-        return action.isLoading;
-    default:
-        return state;
-  }
-}
+        return {...state,isLoading:action.isLoading};
 
-export function products(state=[],action){
-  switch(action.type){
     case 'PRODUCTS_FETCH_DATA_SUCCESS':
-        return action.products;
+        return {...state,productList:action.products};
+        
     default:
       return state;
   }
