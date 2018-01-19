@@ -9,13 +9,14 @@ class Button extends React.Component {
   static propTypes={
     propClassName : PropTypes.string,
     propValue : PropTypes.string,
-    propBadgeValue : PropTypes.number
+    propBadgeValue : PropTypes.number,
+    propIsBadge : PropTypes.bool
   }
 
   static defaultProps = {
     propClassName : "",
     propValue : "",
-    propBadgeValue : 0
+    propIsBadge : false
 
   }
 
@@ -23,7 +24,7 @@ class Button extends React.Component {
     return(
       <button onClick={this.props.onClick} className={this.props.propClassName}>
         {this.props.propValue}&nbsp;
-        {this.props.propBadgeValue && (
+        {this.props.propIsBadge && (
           <Badge propClassName="badge badge-light" propBadgeValue={this.props.propBadgeValue} />
         )}
 
