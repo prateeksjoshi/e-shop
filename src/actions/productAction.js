@@ -22,6 +22,7 @@ export function productsFetchDataSuccess(products){
 }
 
 export function updateProduct(id){
+    console.log('id2323 = ',id);
   return {
     type:"PRODUCT_IS_SELECTED",
     id

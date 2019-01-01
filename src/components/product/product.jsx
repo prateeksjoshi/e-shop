@@ -36,7 +36,7 @@ class Product extends React.Component {
           <h6 className="product-name text-center">{this.props.productName}</h6>
           <div className="d-flex justify-content-center">
               <Badge propBadgeValue={"Rs. "+this.props.productPrice} propClassName="badge badge-pill badge-secondary" />
-              <Button propIsBadge={false} propClassName={"btn btn-dark btn-sm "+(this.props.isSelected ? 'bg-red':null)} onClick={()=>this.props.updateCart(this.props.id,this.props.propProduct)} propValue={this.props.isSelected ? "Remove":"Add to Cart"} />
+              <Button propIsBadge={false} propClassName={"btn btn-dark btn-sm "+(this.props.isSelected ? 'bg-red':null)} onClick={()=>this.props.updateCart(this.props.propProduct.id,this.props.propProduct)} propValue={this.props.isSelected ? "Remove":"Add to Cart"} />
           </div>
         </div>
       </div>
@@ -46,7 +46,9 @@ class Product extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return{
-    updateCart:(id,product)=>dispatch(updateCart(id,product))
+    updateCart:(id,product)=>{
+        dispatch(updateCart(id,product))
+    }
   }
 }
 

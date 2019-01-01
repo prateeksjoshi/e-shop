@@ -17,7 +17,7 @@ export default class ProductList extends React.Component {
     return (
       <article className="product-list d-flex justify-content-start flex-wrap">
         {this.props.propProducts.map(function(product,index){
-          return (<Product key={product.id} propProduct={product} {...product} />);
+          return (<Product key={product.id} propProduct={product} {...product} onSelect />);
         })}
       </article>
     );
