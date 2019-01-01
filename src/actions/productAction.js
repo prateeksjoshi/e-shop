@@ -22,7 +22,6 @@ export function productsFetchDataSuccess(products){
 }
 
 export function updateProduct(id){
-    console.log('id2323 = ',id);
   return {
     type:"PRODUCT_IS_SELECTED",
     id
@@ -51,7 +50,7 @@ export function sortProducts(products){
 }
 
 export function updateCart(id,product){
-    const newProduct = {...product,isSelected:!product.isSelected}
+    const newProduct = {...product,isSelected:!product.isSelected};
     return (dispatch)=>{
       fetch(api+"/"+id,{
         method:"put",

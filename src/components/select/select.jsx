@@ -1,15 +1,10 @@
 import React from 'react';
 
-class Select extends React.Component {
-  render(){
-    return(
-      <select className="form-control" value={this.props.propValue} onChange={this.props.propOnChange}>
+const Select = (props)=>(
+    <select className="form-control" value={props.propValue} onChange={props.propOnChange}>
         <option value="productName">Name</option>
         <option value="productPrice">Price</option>
-      </select>
-    );
-  }
-}
-
+    </select>
+);
 
 export default Select;

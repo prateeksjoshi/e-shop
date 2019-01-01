@@ -1,11 +1,9 @@
 import React from 'react';
 
-const EshopContainer = (props)=>{
-  return (
+const EshopContainer = (props)=>(
     <section>
-      {props.children}
+        {props.children}
     </section>
-  );
-}
+);
 
 export default EshopContainer;
