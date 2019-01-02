@@ -1,9 +1,29 @@
-import React from 'react';
+import React,{Component} from 'react';
+import {connect} from 'react-redux';
 
-const EshopContainer = (props)=>(
-    <section>
-        {props.children}
-    </section>
-);
+import api from '../../api/api';
 
-export default EshopContainer;
+import {productsFetchData} from "../../actions/productAction";
+
+class EshopContainer extends React.Component{
+    componentDidMount(){
+        this.props.fetchData(api);
+    }
+    render(){
+        return(
+            <section>
+                {this.props.children}
+            </section>
+        );
+    }
+};
+
+
+
+function mapDispatchToProps(dispatch){
+    return{
+        fetchData:(url)=>dispatch(productsFetchData(url))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(EshopContainer);
